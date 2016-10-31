@@ -13,7 +13,7 @@
     ],
     "require": {
         "symfony/symfony": "~2.2",
-        "jms/serializer": "~0.11"
+        "jms/serializer": "~1.0"
     },
     "require-dev": {
         "cocur/slugify": "~0.8"
