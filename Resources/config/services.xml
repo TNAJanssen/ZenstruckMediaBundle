@@ -11,6 +11,7 @@
 
     <services>
         <service id="zenstruck_media.filesystem_factory" class="%zenstruck_media.filesystem_factory.class%">
+            <argument type="service" id="router" />
             <argument>%zenstruck_media.filesystem.class%</argument>
         </service>
         <service id="zenstruck_media.controller" class="%zenstruck_media.controller.class%">

@@ -9,7 +9,7 @@ Provides a simple media/file management GUI for Symfony2:
 
 [![Screenshot][1]][2]
 
-[View Demo][2]
+[View Example Source Code][2]
 
 ## Installation
 
@@ -22,27 +22,27 @@ Provides a simple media/file management GUI for Symfony2:
 
         bower install ngUpload
 
-3. *Optional*  If using the slugify filename feature, add [zenstruck/slugify-bundle][5] to your composer.json
+3. *Optional*  If using the slugify filename feature, add [cocur/slugify][5] to your composer.json
 
-        composer require zenstruck/slugify-bundle
+        composer require cocur/slugify
 
 4. Register the bundle with Symfony2:
 
-```php
-// app/AppKernel.php
+    ```php
+    // app/AppKernel.php
 
-public function registerBundles()
-{
-    $bundles = array(
+    public function registerBundles()
+    {
+        $bundles = array(
+            // ...
+            new Zenstruck\MediaBundle\ZenstruckMediaBundle(),
+
+            // enable if you want to use the slugify filename feature
+            // new Cocur\Slugify\Bridge\Symfony\CocurSlugifyBundle()
+        );
         // ...
-        new Zenstruck\MediaBundle\ZenstruckMediaBundle(),
-
-        // enable if you want to use the slugify filename feature
-        // new Zenstruck\SlugifyBundle\ZenstruckSlugifyBundle()
-    );
-    // ...
-}
-```
+    }
+    ```
 
 ## Full Default Config
 
@@ -59,13 +59,14 @@ zenstruck_media:
         name:
             root_dir:             %kernel.root_dir%/../web/files # Required
             web_prefix:           /files # Required
+            secure:               false # set true and change the path to a non public path for secure file downloads
 
             # Comma separated list of extensions
             allowed_extensions:   ~ # Example: jpg,gif,png
 ```
 
 [1]: https://lh5.googleusercontent.com/-c7FHKPXsrvg/UYuZtMA3pKI/AAAAAAAAKGA/82ZdM0Tpr4Y/w963-h438-no/zenstruck-media.png
-[2]: http://sandbox.zenstruck.com/
+[2]: https://github.com/kbond/sandbox
 [3]: http://twilson63.github.io/ngUpload/
 [4]: http://bower.io/
-[5]: https://github.com/kbond/ZenstruckSlugifyBundle
+[5]: https://github.com/cocur/slugify#symfony2

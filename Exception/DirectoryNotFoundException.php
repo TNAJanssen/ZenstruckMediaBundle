@@ -5,7 +5,6 @@ namespace Zenstruck\MediaBundle\Exception;
 /**
  * @author Kevin Bond <kevinbond@gmail.com>
  */
-class DirectoryNotFoundException extends Exception
+class DirectoryNotFoundException extends FileNotFoundException
 {
-    const STATUS_CODE = 404;
 }
